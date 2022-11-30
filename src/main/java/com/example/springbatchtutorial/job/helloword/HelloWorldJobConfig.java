@@ -42,6 +42,7 @@ public class HelloWorldJobConfig {
     public Tasklet helloWorldTasklet() {
         return (contribution, chunkContext) -> {
             System.out.println("Hello World Spring Batch");
-            return RepeatStatus.FINISHED;            };
+            return RepeatStatus.FINISHED;
+        };
     }
 }
