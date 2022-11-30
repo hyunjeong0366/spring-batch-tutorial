@@ -1,7 +1,6 @@
 package com.example.springbatchtutorial.job.core.domain.order;
 
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -10,6 +9,7 @@ import java.time.LocalDateTime;
 @Table(name = "orders")
 @Getter
 @ToString
+@NoArgsConstructor
 public class Order {
 
     @Id
@@ -18,4 +18,11 @@ public class Order {
     private String orderItem;
     private int price;
     private LocalDateTime orderDate;
+
+    @Builder
+    public Order(String orderItem, int price, LocalDateTime orderDate) {
+        this.orderItem = orderItem;
+        this.price = price;
+        this.orderDate = orderDate;
+    }
 }
